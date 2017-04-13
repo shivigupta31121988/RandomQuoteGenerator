@@ -1,0 +1,30 @@
+﻿@model RandomQuoteGenerator.Models.QuoteManager
+
+
+
+<h2>Index </h2>
+<h3> @TempData["Title"]</h3>
+<div id="rCorner">
+    <h4>QuoteManager</h4>
+    <hr />
+            @Html.DisplayFor(model => model.QuoteName)
+    <br /><br/>
+    <span> -    @Html.DisplayFor(model => model.Author) </span>
+    
+
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Index", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+    <input id="btnGetQuote" type="button" class="btn-primary" value="Another Random Quote" onclick="location.href='@Url.Action("ButtonClickAction", "Quote")'" />
+</p>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function() {
+        var t = self.setInterval(function() {
+            $("#btnGetQuote").click();
+            },
+            5000);
+    })
+</script>
